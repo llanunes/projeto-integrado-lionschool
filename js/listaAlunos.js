@@ -1,6 +1,6 @@
 'use strict'
 
-import { getAlunoPorCurso, filtrarAlunoPorStatusEAnoDeConclusao, getAnos } from "./listaAlunosFetch.js"
+import { getAlunoPorCurso, filtrarAlunoPorStatus, getAnos } from "./listaAlunosFetch.js"
 import { getCursos } from "./cursosFetch.js";
 
 const curso = localStorage.getItem('curso');
@@ -42,7 +42,7 @@ const criarCards = (array) => {
     });
 }
 
-console.log(alunosCurso);
+
 
 alunosCurso.forEach(criarCards);
 
@@ -56,7 +56,20 @@ cursos.forEach(item => {
     }
 });
 
+const sanitizeCardsContainer = () => {
+    const container = document.querySelector('.cards-container')
+    while (container.lastChild) {
+        container.lastChild.remove()
+    }
+}
 
-console.log(cursos);
 
+const statusFilters = document.querySelector('#status-select')
+
+statusFilters.addEventListener('change', async (event) => {
+   const value = statusFilters.value
+   const data = await filtrarAlunoPorStatus(curso, value);
+   sanitizeCardsContainer();
+   data.forEach(criarCards);
+})
 

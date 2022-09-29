@@ -3,9 +3,9 @@
 const getCursos = async () => {
     const url =  'http://localhost:8080/cursos';
     const response = await fetch(url);
-    const data = await response.json();
+    const { cursos } = await response.json();
 
-    return data;
+    return cursos;
 }
 
 export {getCursos}

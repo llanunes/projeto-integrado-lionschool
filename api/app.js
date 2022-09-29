@@ -31,7 +31,7 @@ app.get('/cursos', cors(), async (request, response, next) => {
 
     if (cursos) {
         response.status(200);
-        response.json(cursos);
+        response.json({ cursos });
     } else {
         response.status(404);
     }
@@ -43,7 +43,7 @@ app.get('/alunos', cors(), async (request, response, next) => {
 
     if (listaAlunos) {
         response.status(200);
-        response.json(listaAlunos);
+        response.json({ listaAlunos });
     } else {
         response.status(404);
     }
@@ -65,7 +65,7 @@ app.get('/alunos', cors(), async (request, response, next) => {
 
     if (listaAlunos) {
         response.status(200);
-        response.json(listaAlunos);
+        response.json({ listaAlunos });
     } else {
         response.status(404);
     }
@@ -79,7 +79,7 @@ app.get('/aluno/matricula/:matricula', cors(), async (request, response, next) =
 
     if (informacaoAluno) {
         response.status(200);
-        response.json(informacaoAluno);
+        response.json({ informacaoAluno });
     } else {
         response.status(404);
     }
@@ -92,7 +92,7 @@ app.get('/:status/alunos', cors(), async (request, response, next) => {
 
     if (listaAlunos) {
         response.status(200);
-        response.json({listaAlunos});
+        response.json({ listaAlunos });
     } else {
         response.status(404);
     }
@@ -105,7 +105,7 @@ app.get('/alunos/conclusao/:data', cors(), async (request, response, next) => {
 
     if (listaAlunos) {
         response.status(200);
-        response.json(listaAlunos);
+        response.json({ listaAlunos });
     } else {
         response.status(404);
     }
@@ -118,7 +118,7 @@ app.get('/:matricula/disciplinas', cors(), async (request, response, next) => {
 
     if (disciplinas) {
         response.status(200);
-        response.json(disciplinas);
+        response.json({ disciplinas });
     } else {
         response.status(404);
     }
